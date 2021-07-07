@@ -1,0 +1,121 @@
+html,
+body,
+* {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+$sm-width: 568px;
+$md-width: 768px;
+$md-alt-width: 991px;
+$lg-width: 1024px;
+$xl-width: 1280px;
+
+@mixin sm {
+  @media screen and (min-width: #{$sm-width}) {
+    @content;
+  }
+}
+@mixin md {
+  @media screen and (min-width: #{$md-width}) {
+    @content;
+  }
+}
+@mixin md-alt {
+  @media screen and (min-width: #{$md-alt-width}) {
+    @content;
+  }
+}
+@mixin lg {
+  @media screen and (min-width: #{$lg-width}) {
+    @content;
+  }
+}
+@mixin xl {
+  @media screen and (min-width: #{$xl-width}) {
+    @content;
+  }
+}
+@mixin ie {
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    @content;
+  }
+}
+
+$valid-margins: 0 8 10 14 16 24 32 48 64;
+
+@mixin generate-margins($sufix, $class) {
+  @each $margin in $valid-margins {
+    .#{$sufix}-#{$margin} {
+      #{$class}: #{$margin}px;
+    }
+  }
+}
+@include generate-margins($sufix: "mt", $class: "margin-top");
+@include generate-margins($sufix: "mr", $class: "margin-right");
+@include generate-margins($sufix: "mb", $class: "margin-bottom");
+@include generate-margins($sufix: "ml", $class: "margin-left");
+@include sm {
+  @include generate-margins($sufix: "mt-sm", $class: "margin-top");
+  @include generate-margins($sufix: "mb-sm", $class: "margin-bottom");
+  @include generate-margins($sufix: "mr-sm", $class: "margin-right");
+  @include generate-margins($sufix: "ml-sm", $class: "margin-left");
+}
+@include md {
+  @include generate-margins($sufix: "mt-md", $class: "margin-top");
+  @include generate-margins($sufix: "mb-md", $class: "margin-bottom");
+  @include generate-margins($sufix: "mr-md", $class: "margin-right");
+  @include generate-margins($sufix: "ml-md", $class: "margin-left");
+}
+@include lg {
+  @include generate-margins($sufix: "mt-lg", $class: "margin-top");
+  @include generate-margins($sufix: "mb-lg", $class: "margin-bottom");
+  @include generate-margins($sufix: "mr-lg", $class: "margin-right");
+  @include generate-margins($sufix: "ml-lg", $class: "margin-left");
+}
+@include xl {
+  @include generate-margins($sufix: "mt-xl", $class: "margin-top");
+  @include generate-margins($sufix: "mb-xl", $class: "margin-bottom");
+  @include generate-margins($sufix: "mr-xl", $class: "margin-right");
+  @include generate-margins($sufix: "ml-xl", $class: "margin-left");
+}
+@media screen and (max-width: #{$sm-width - 1}) {
+  .hidden-xs {
+    display: none !important;
+  }
+}
+@media screen and (min-width: #{$sm-width}) and (max-width: #{$md-width - 1}) {
+  .hidden-sm {
+    display: none !important;
+  }
+}
+@media screen and (min-width: #{$md-width}) and (max-width: #{$lg-width - 1}) {
+  .hidden-md {
+    display: none !important;
+  }
+}
+@media screen and (min-width: #{$lg-width}) and (max-width: #{$xl-width - 1}) {
+  .hidden-lg {
+    display: none !important;
+  }
+}
+@include xl {
+  .hidden-xl {
+    display: none !important;
+  }
+}
+@media screen and (min-width: #{$md-alt-width}) {
+  .hidden-md-alt {
+    display: none !important;
+  }
+}
+.hidden {
+  display: none !important;
+}
