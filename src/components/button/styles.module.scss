@@ -1,0 +1,17 @@
+.button {
+    background-color: rgb(250, 152, 114);
+    border: none;
+    padding: 10px;
+    color: rgb(61, 61, 61);
+    font-size: 18px;
+    font-weight: bold;
+    border: 3px solid transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    &:active {
+        border: 3px solid white;
+    }
+    &:hover {
+        background-color: rgba(250, 152, 114, 0.9);
+    }
+}
