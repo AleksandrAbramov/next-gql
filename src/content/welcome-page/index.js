@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import PageLayout from 'components/page-layout'
+import PageLayout from 'src/components/page-layout'
 import Card from 'src/components/card'
 import styles from './styles.module.scss'
 
