@@ -1,20 +1,25 @@
-import React, { useRef } from 'react'
-import Button from 'src/components/button'
-import PageLayout from 'src/components/page-layout'
+import React, { useEffect, useState } from 'react'
+import PageLayout from 'components/page-layout'
+import Card from 'src/components/card'
 import styles from './styles.module.scss'
 
-const Welcome = () => {
-  const headerRef = useRef(null)
-  const onClickHandler = () => {
-    headerRef.current.scrollIntoView({ behavior: 'smooth' })
-  }
+const Welcome = ({ books }) => {
+  const [state, setState] = useState(null)
+
+  useEffect(() => {
+    setState(books)
+  }, [books])
+
   return (
     <PageLayout>
-      <h1 ref={headerRef}>This is WELCOME page!</h1>
-      <div className={styles.longDiv}></div>
-      <Button onClick={onClickHandler} className="mt-8">
-        Click
-      </Button>
+      <h1>This is WELCOME page!</h1>
+      <div className={styles.cardsWrapper}>
+        {state
+          ? state.map((book) => (
+              <Card key={book.title} {...book} className="mb-10" />
+            ))
+          : 'Loading...'}
+      </div>
     </PageLayout>
   )
 }

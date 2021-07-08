@@ -1,5 +1,5 @@
-import Welcome from 'src/content/welcome-page'
-import client from '../../client'
+import DetailsPage from 'src/content/details-page'
+import client from '../../../client'
 import { GET_BOOKS } from 'src/api/getBooks.query'
 
 export async function getServerSideProps() {
@@ -15,4 +15,4 @@ export async function getServerSideProps() {
   }
 }
 
-export default Welcome
+export default DetailsPage
