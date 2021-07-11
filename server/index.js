@@ -1,4 +1,5 @@
 const { ApolloServer, gql } = require('apollo-server')
+
 const typeDefs = gql`
   type Book {
     id: Int
@@ -10,6 +11,7 @@ const typeDefs = gql`
     books: [Book]
   }
 `
+
 const books = [
   {
     id: 1,
